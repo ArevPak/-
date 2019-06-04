@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-image: url(bg.jpg);">
+	<div class="row">
+		<h1>Очки:</h1>>
+		<h1 class="text-score"></h1>
+	</div>
+	<div class="row">
+		<h1>Жуки:</h1>>
+		<h1 class="juk"></h1>
+	</div>
+	<script>
+	let score = 0
+	let tarak = 0
+	let timer = function(){
+		let rand = Math.round( Math.random()*1000)
+		let ran = Math.round( Math.random()*600)
+		let newDiv = document.createElement('img')
+		let textScore = document.querySelector(".text-score")
+		let textScore1 = document.querySelector(".juk")
+		
+		newDiv.src = "img.svg"
+		
+		document.body.appendChild(newDiv);
+
+		newDiv.style.position = "absolute";
+		newDiv.style.height = "100px";
+		newDiv.style.width = "100px";
+		newDiv.style.marginLeft = rand + "px";
+		newDiv.style.marginTop = ran + "px";
+		tarak = tarak + 1
+		textScore1.innerHTML = tarak
+		newDiv.onclick = function(){
+			newDiv.style.display = "none";
+			score = score + 1
+			tarak = tarak - 1
+			textScore.innerHTML = score
+			textScore1.innerHTML = tarak
+		}
+		if (  tarak ==  5 ) {
+			alert("Ты проиграл")
+			
+		}
+	}
+			
+	        
+		
+	
+
+	setInterval(timer,1000)
+	</script>
+</body>
+</html>
